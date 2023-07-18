@@ -1,0 +1,44 @@
+header{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: gray;
+}
+
+main {
+    display: flex;
+    background-color: beige;
+}
+
+.containerLocation {
+    display: flex;
+    padding: 1%;
+    margin: 1%;
+    border: 2px;
+    flex-direction: column;
+    min-width: 20%;
+    height: 100%;
+    background-color: gray;
+}
+
+.containerWeather {
+    display: flex;
+    padding: 1%;
+    margin: 1%;
+    border: 2px;
+    min-width: 50%;
+    flex-direction: column;
+}
+
+.weeklyWeather {
+    display: flex;
+}
+
+.fullWeek {
+    margin: 10%;
+    padding: 1%;
+    border: 2px;
+    border-color: black;
+    background-color: white;
+
+}
