@@ -10,9 +10,11 @@ var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=41.
 var forcastWeatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=41.4817647&lon=-72.6812059&appid=ac7cbe64d8841fa5ae6093c5853d6268'
 
 var country = "US"
-var state = document.querySelector(".state");
+//var state = document.querySelector("#state");
+var state = document.getElementById("state");
 var pickedState = "";
-var city = document.querySelector("#city");
+//var city = document.querySelector("#city");
+var city = document.getElementById("city");
 var pickedCity = "";
 
 
@@ -36,8 +38,15 @@ var submit = document.querySelector(".btn");
 submit = addEventListener("click", chooseLocation());
 
 function chooseLocation(){
-  state.textContent = pickedCity.value
-  console.log(pickedCity);
+  //state.textContent = pickedCity.value
+  //console.log(pickedCity);
+  var pickedState = state.id;
+  var geoFunctionState = pickedState;
+  console.log(geoFunctionState);
+  
+  var pickedCity = city.id;
+  var geoFunctionCity = pickedCity;
+  console.log(geoFunctionCity);
   LatandLonFetching();
 }
 
