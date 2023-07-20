@@ -12,10 +12,10 @@ var forcastWeatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=41
 var country = "US"
 //var state = document.querySelector("#state");
 var state = document.getElementById("state");
-var pickedState = "";
+var textPickedState = "";
 //var city = document.querySelector("#city");
 var city = document.getElementById("city");
-var pickedCity = "";
+var textPickedCity = "";
 
 
 var todayWeather = document.querySelector(".currentWeather");
@@ -43,10 +43,14 @@ function chooseLocation(){
   var pickedState = state.id;
   var geoFunctionState = pickedState;
   console.log(geoFunctionState);
+  // if works I can use Window.geoxxxx = pickedxxx
+  window.textPickedState = geoFunctionState;
   
   var pickedCity = city.id;
   var geoFunctionCity = pickedCity;
   console.log(geoFunctionCity);
+  // if works I can use Window.geoxxxx = pickedxxx
+  window.textPickedCity = geoFunctionCity;
   LatandLonFetching();
 }
 
