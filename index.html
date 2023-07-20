@@ -12,45 +12,110 @@
     <title>Show me the Weather</title>
 </head>
 <!-- <label for="number">Select a number</label>-->
-    
+
 <body>
     <Header>
         <h1 class="header">Weekly Weather</h1>
     </Header>
-<Main>
-    <div class="containerLocation">
-        <h1 class="header">Weekly Weather</h1>
-        <div class="optionsBox">
-            <div class="formBox">
-                <form class="forms">
-                    <label for="exampleInputEmail1" class="form-label">Enter your City/Town</label>
-                    <input type="data" class="form-control" id="city" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Please Enter Town</div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+    <Main>
+        <div class="containerLocation">
+            <h1 class="header">Weekly Weather</h1>
+            <div class="optionsBox">
+                <div class="formBox">
+                    <label for="state">Select a state</label>
+                    <select name="state" id="state">
+                        <option></option>
+                        <!-- <option selected="selected">2</option> -->
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option selected="selected">Connecticut</option>
+                        <option>Delaware</option>
+                        <option>Florida</option>
+                        <option>Georgia</option>
+                        <option>Hawaii</option>
+                        <option>Idaho</option>
+                        <option>Illinois</option>
+                        <option>Indiana</option>
+                        <option>Iowa</option>
+                        <option>Kansas</option>
+                        <option>Kentucky</option>
+                        <option>Louisiana</option>
+                        <option>Maine</option>
+                        <option>Maryland</option>
+                        <option>Massachusetts</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Mississippi</option>
+                        <option>Missouri</option>
+                        <option>Montana</option>
+                        <option>Nebraska</option>
+                        <option>Nevada</option>
+                        <option>New Hampshire</option>
+                        <option>New Jersey</option>
+                        <option>New Mexico</option>
+                        <option>New York</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Ohio</option>
+                        <option>Oklahoma</option>
+                        <option>Oregon</option>
+                        <option>Pennsylvania</option>
+                        <option>Rhode Island</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Utah</option>
+                        <option>Vermont</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>West Virginia</option>
+                        <option>Wisconsin</option>
+                        <option>Wyoming</option>
+                    </select>
+                    <form class="forms">
+                        <label for="exampleInputEmail1" class="form-label">Enter your City/Town</label>
+                        <input type="data" class="form-control" id="city" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Please Enter Town</div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <h2>Picked locations</h2>
             </div>
         </div>
-        <div>
-            <h2>Picked locations</h2>
-        </div>
-    </div>
 
-    <section Class="containerWeather">
-        <div>
-            <h1>WeatherBox</h1>
-        <div Class="currentWeather"></div>
-        </div>
-        <div>
-            <Ul class="weeklyWeather">
-                <div class="Day1 fullWeek"><h3>day1</h3></div>
-                <div class="Day2 fullWeek"><h3>day2</h3></div>
-                <div class="Day3 fullWeek"><h3>day3</h3></div>
-                <div class="Day4 fullWeek"><h3>day4</h3></div>
-                <div class="Day5 fullWeek"><h3>day5</h3></div>
-            </Ul>
-        </div>
-    </section>
-</Main>
+        <section Class="containerWeather">
+            <div>
+                <h1>WeatherBox</h1>
+                <div Class="currentWeather"></div>
+            </div>
+            <div>
+                <Ul class="weeklyWeather">
+                    <div id="Day1" class="fullWeek">
+                        <h3>day1</h3>
+                    </div>
+                    <div id="Day2" class="fullWeek">
+                        <h3>day2</h3>
+                    </div>
+                    <div id="Day3" class="fullWeek">
+                        <h3>day3</h3>
+                    </div>
+                    <div id="Day4" class="fullWeek">
+                        <h3>day4</h3>
+                    </div>
+                    <div id="Day5" class="fullWeek">
+                        <h3>day5</h3>
+                    </div>
+                </Ul>
+            </div>
+        </section>
+    </Main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -62,59 +127,3 @@
 </body>
 
 </html>
-
-<label for="state">Select a number</label>
-<select name="state" id="state">
-  <option></option>
-  <!-- <option selected="selected">2</option> -->
-  <option>Alabama</option>
-  <option>Alaska</option>
-  <option>Arizona</option>
-  <option>Arkansas</option>
-  <option>California</option>
-  <option>Colorado</option>
-  <option selected="selected">Connecticut</option>
-  <option>Delaware</option>
-  <option>Florida</option>
-  <option>Georgia</option>
-  <option>Hawaii</option>
-  <option>Idaho</option>
-  <option>Illinois</option>
-  <option>Indiana</option>
-  <option>Iowa</option>
-  <option>Kansas</option>
-  <option>Kentucky</option>
-  <option>Louisiana</option>
-  <option>Maine</option>
-  <option>Maryland</option>
-  <option>Massachusetts</option>
-  <option>Michigan</option>
-  <option>Minnesota</option>
-  <option>Mississippi</option>
-  <option>Missouri</option>
-  <option>Montana</option>
-  <option>Nebraska</option>
-  <option>Nevada</option>
-  <option>New Hampshire</option>
-  <option>New Jersey</option>
-  <option>New Mexico</option>
-  <option>New York</option>
-  <option>North Carolina</option>
-  <option>North Dakota</option>
-  <option>Ohio</option>
-  <option>Oklahoma</option>
-  <option>Oregon</option>
-  <option>Pennsylvania</option>
-  <option>Rhode Island</option>
-  <option>South Carolina</option>
-  <option>South Dakota</option>
-  <option>Tennessee</option>
-  <option>Texas</option>
-  <option>Utah</option>
-  <option>Vermont</option>
-  <option>Virginia</option>
-  <option>Washington</option>
-  <option>West Virginia</option>
-  <option>Wisconsin</option>
-  <option>Wyoming</option>
-</select>

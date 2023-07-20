@@ -1,7 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-h1 {
+* {
     font-family: 'Bebas Neue', sans-serif;
 }
 
@@ -43,10 +42,12 @@ main {
 }
 
 .fullWeek {
-    margin: 10%;
+display: flex;
+min-width: 25%;
+margin: 1%;
+    border: 12px;
     padding: 1%;
-    border: 2px;
     border-color: black;
-    background-color: white;
-
+    background-color:blue;
+    border-radius: 15px;
 }
