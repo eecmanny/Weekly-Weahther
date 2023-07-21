@@ -38,19 +38,21 @@ var submit = document.querySelector(".btn");
 submit = addEventListener("click", chooseLocation());
 
 function chooseLocation(){
+  console.log(state);
+  console.log(document.getElementById("state").value);
   //state.textContent = pickedCity.value
   //console.log(pickedCity);
-  var pickedState = state.id;
-  var geoFunctionState = pickedState;
-  console.log(geoFunctionState);
-  // if works I can use Window.geoxxxx = pickedxxx
-  window.textPickedState = geoFunctionState;
+  // var pickedState = state.id;
+  // var geoFunctionState = pickedState;
+  // console.log(geoFunctionState);
+  // // if works I can use Window.geoxxxx = pickedxxx
+  // window.textPickedState = geoFunctionState;
   
-  var pickedCity = city.id;
-  var geoFunctionCity = pickedCity;
-  console.log(geoFunctionCity);
-  // if works I can use Window.geoxxxx = pickedxxx
-  window.textPickedCity = geoFunctionCity;
+  // var pickedCity = city.id;
+  // var geoFunctionCity = pickedCity;
+  // console.log(geoFunctionCity);
+  // // if works I can use Window.geoxxxx = pickedxxx
+  // window.textPickedCity = geoFunctionCity;
   LatandLonFetching();
 }
 
