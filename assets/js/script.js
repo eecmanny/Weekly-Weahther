@@ -1,21 +1,26 @@
-// var geocodeURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "," + state + ",US&limit=5&appid=ac7cbe64d8841fa5ae6093c5853d6268"
+//Chooses when anywhere in US//
+
+var variableGeocodeURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + textPickedCity + "," + textPickedState + ",US&limit=5&appid=ac7cbe64d8841fa5ae6093c5853d6268"
 var geocodeURL = "https://api.openweathermap.org/geo/1.0/direct?q=Durham,Connecticut,US&limit=5&appid=ac7cbe64d8841fa5ae6093c5853d6268"
 
 
-// var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268"
+// var variableCurrentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268"
 var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=41.4817647&lon=-72.6812059&appid=ac7cbe64d8841fa5ae6093c5853d6268"
 
 
-// var forcastWeatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268"
+// var variableForcastWeatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268"
 var forcastWeatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=41.4817647&lon=-72.6812059&appid=ac7cbe64d8841fa5ae6093c5853d6268'
 
 var country = "US"
-//var state = document.querySelector("#state");
+// var state = document.querySelector("#state");
 var state = document.getElementById("state");
-var textPickedState = "";
+var textPickedState = [];
+console.log(textPickedState);
 //var city = document.querySelector("#city");
 var city = document.getElementById("city");
-var textPickedCity = "";
+var textPickedCity = [];
+console.log(textPickedCity);
+
 
 
 var todayWeather = document.querySelector(".currentWeather");
@@ -34,20 +39,28 @@ var submit = document.querySelector(".btn");
 //   if (navigator.geolocation) {
 //     navigator.geolocation.getCurrentPosition(success);
 //   }
+// document.addEventListener("DOMContentLoaded", function () {
+  // Your JavaScript code here, including the variable declarations for 'state' and other elements.
 
-submit = addEventListener("click", chooseLocation());
 
-function chooseLocation(){
-  console.log(state);
-  console.log(document.getElementById("state").value);
-  //state.textContent = pickedCity.value
-  //console.log(pickedCity);
-  // var pickedState = state.id;
-  // var geoFunctionState = pickedState;
-  // console.log(geoFunctionState);
-  // // if works I can use Window.geoxxxx = pickedxxx
-  // window.textPickedState = geoFunctionState;
-  
+submit = addEventListener("click", chooseLocation);
+
+function chooseLocation(event){
+  event.preventDefault();
+  // console.log(document.getElementById("state").value);
+  selectedState = document.getElementById("state").value;
+  textPickedState.push(selectedState);
+  console.log(selectedState);
+
+  // console.log(document.getElementById("city").value);
+  selectedCity = document.getElementById("city").value;
+  textPickedCity.push(selectedCity);
+
+
+  console.log(selectedCity);
+
+
+
   // var pickedCity = city.id;
   // var geoFunctionCity = pickedCity;
   // console.log(geoFunctionCity);
@@ -55,14 +68,15 @@ function chooseLocation(){
   // window.textPickedCity = geoFunctionCity;
   LatandLonFetching();
 }
+// });
 
 
-
-LatandLonFetching();
+// LatandLonFetching();
 
 function LatandLonFetching() {
 
-  fetch(geocodeURL)
+  fetch(variableGeocodeURL)
+  // fetch(geocodeURL)
     .then(response => {
       console.log(response);
       return response.json();
@@ -71,42 +85,42 @@ function LatandLonFetching() {
       console.log(data)
 
     })
-  forcastWeather();
-  currentWeather();
+  // forcastWeather();
+  // currentWeather();
 };
 
 
 
-// CurrentWeather API
-// This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
-function currentWeather() {
-  // var lat = position.coords.latitude;
-  // var lon = position.coords.longitude;
-  fetch(currentWeatherUrl)
-    .then(response => {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-    });
-}
+// // CurrentWeather API
+// // This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
+// function currentWeather() {
+//   // var lat = position.coords.latitude;
+//   // var lon = position.coords.longitude;
+//   fetch(currentWeatherUrl)
+//     .then(response => {
+//       // console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       // console.log(data)
+//     });
+// }
 
-//forcastWeather API
-//This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
-function forcastWeather() {
-  // //   // var lat = position.coords.latitude;
-  // //   // var lon = position.coords.longitude;
+// //forcastWeather API
+// //This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
+// function forcastWeather() {
+//   // //   // var lat = position.coords.latitude;
+//   // //   // var lon = position.coords.longitude;
 
-  fetch(forcastWeatherUrl)
-    .then(response => {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-    })
-};
+//   fetch(forcastWeatherUrl)
+//     .then(response => {
+//       // console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       // console.log(data)
+//     })
+// };
 
 
   //   //Using browser location
