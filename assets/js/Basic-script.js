@@ -114,43 +114,54 @@ function forcastWeather(lat, lon) {
       console.log(data);
 
       //Day 1
+      var Day1ElementTemp1 = querySelector("#temp1");
+      var Day1ElementHumidity1 = querySelector("#humidity1");
+      var Day1ElementWind1 = querySelector("#wind1");
+      var Day1ElementNum1 = querySelector("#date1");
+
       var Day1Temp = data.list[0].main.temp;
+      var Day1Humidity = data.list[0].main.humidity;
+      var Day1Wind = data.list[0].wind.speed;
+      // I dont think date is correct becasue I don't think it would be in wind folder - Note to recheck
+      // var dateNum1 = data.list[0].wind.dt;
       // console.log(data.list[0].main.temp);
       // console.log(Day1Temp);
-
-
-      var Day1humidity = data.list[0].main.humidity;
       // console.log(Day1humidity);
-
-      var Day1wind = data.list[0].wind.speed;
       // console.log(Day1wind);
-      var dateNum1 = data.list[0].wind.dt;
+
+      // Day1ElementTemp1.value = Day1Temp
+      //or
+      Day1ElementTemp1.textContent = Day1Temp
+      Day1ElementTemp1.textContent = Day1Humidity
+      Day1ElementTemp1.textContent = Day1Wind
+      // Day1ElementTemp1.textContent = dateNum1
+
 
       //Day2
-      var Day2Temp = data.list[1].main.temp;
-      var Day2humidity = data.list[1].main.humidity;
-      var Day2wind = data.list[1].wind.speed;
-      var Day2dateNum = data.list[1].wind.dt;
+      var Day2Temp2 = data.list[1].main.temp;
+      var Day2Humidity2 = data.list[1].main.humidity;
+      var Day2Wind2 = data.list[1].wind.speed;
+      // var Day2dateNum2 = data.list[1].wind.dt;
 
       //Day3
-      var Day3Temp = data.list[2].main.temp;
-      var Day3humidity = data.list[2].main.humidity;
-      var Day3wind = data.list[2].wind.speed;
-      var Day3dateNum = data.list[2].wind.dt;
+      var Day3Temp3 = data.list[2].main.temp;
+      var Day3Humidity3 = data.list[2].main.humidity;
+      var Day3Wind3 = data.list[2].wind.speed;
+      // var Day3dateNum3 = data.list[2].wind.dt;
 
       //Day4
-      var Day4Temp = data.list[3].main.temp;
-      var Day4humidity = data.list[3].main.humidity;
-      var Day4wind = data.list[3].wind.speed;
-      var Day4dateNum = data.list[3].wind.dt;
+      var Day4Temp4 = data.list[3].main.temp;
+      var Day4humidity4 = data.list[3].main.humidity;
+      var Day4wind4 = data.list[3].wind.speed;
+      // var Day4dateNum4 = data.list[3].wind.dt;
 
 
 
       //Day5
-      var Day5Temp = data.list[4].main.temp;
-      var Day5humidity = data.list[4].main.humidity;
-      var Day5wind = data.list[4].wind.speed;
-      var Day5dateNum = data.list[4].wind.dt;
+      var Day5Temp5 = data.list[4].main.temp;
+      var Day5humidity5 = data.list[4].main.humidity;
+      var Day5wind5 = data.list[4].wind.speed;
+      // var Day5dateNum5 = data.list[4].wind.dt;
 
     })
 };
