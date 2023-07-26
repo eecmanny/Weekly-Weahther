@@ -11,11 +11,24 @@ header{
     background-color: gray;
 }
 
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+    background-color: gray;
+}
+
+
+
 main {
     display: flex;
     background-color: beige;
 }
-
+.currentdateBox {
+    display: flex;
+    flex-direction: column;
+    padding: 7%;
+}
 .containerLocation {
     display: flex;
     padding: 1%;
@@ -48,6 +61,7 @@ margin: 1%;
     border: 12px;
     padding: 1%;
     border-color: black;
-    background-color:blue;
+    background-color:lightblue;
     border-radius: 15px;
+    flex-direction: column;
 }

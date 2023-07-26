@@ -78,6 +78,33 @@ function currentWeather(lat, lon) {
       return response.json();
     })
     .then(function (data) {
+
+      console.log(data);
+      
+      var Day1ElementTemp = document.querySelector("#tempCurrent");
+      var Day1ElementWeather = document.querySelector("#weatherDescriptionCurrent");
+      var Day1ElementHumidity = document.querySelector("#humidityCurrent");
+      var Day1ElementWind = document.querySelector("#windCurrent");
+
+      var Day1Temp = data.main.temp;
+      var Day1Weather = data.weather[0].description;
+      var Day1Humidity = data.main.humidity;
+      var Day1Wind = data.wind.speed;
+      // console.log(data.list[0].main.temp);
+      // console.log(Day1Temp);
+      // console.log(data.list[0].weather[0]);
+      // console.log(Day1dateNum);
+
+      // console.log(Day1humidity);
+      // console.log(Day1wind);
+      // console.log(Day1dateNum);
+
+      Day1ElementTemp.textContent = Day1Temp;
+      Day1ElementHumidity.textContent = Day1Humidity
+      Day1ElementWeather.textContent = Day1Weather;
+      Day1ElementWind.textContent = Day1Wind;
+
+      
       // console.log(data)
 
       // console.log(data.main);
@@ -114,93 +141,108 @@ function forcastWeather(lat, lon) {
       console.log(data);
 
       //Day 1
-      var Day1ElementTemp = querySelector("#temp1");
-      var Day1ElementHumidity = querySelector("#humidity1");
-      var Day1ElementWind = querySelector("#wind1");
-      var Day1ElementNum = querySelector("#date1");
+      var Day1ElementTemp = document.querySelector("#temp1");
+      var Day1ElementWeather = document.querySelector("#weatherDescription1");
+      var Day1ElementHumidity = document.querySelector("#humidity1");
+      var Day1ElementWind = document.querySelector("#wind1");
+      var Day1ElementNum = document.querySelector("#date1");
 
       var Day1Temp = data.list[0].main.temp;
+      var Day1Weather = data.list[0].weather[0].description;
       var Day1Humidity = data.list[0].main.humidity;
       var Day1Wind = data.list[0].wind.speed;
-      // I dont think date is correct becasue I don't think it would be in wind folder - Note to recheck
-      // var Day1dateNum = data.list[0].wind.dt;
+      var Day1dateNum = data.list[0].dt_txt;
       // console.log(data.list[0].main.temp);
       // console.log(Day1Temp);
+      // console.log(data.list[0].weather[0]);
+      // console.log(Day1dateNum);
+
       // console.log(Day1humidity);
       // console.log(Day1wind);
       // console.log(Day1dateNum);
 
-      // Day1ElementTemp1.value = Day1Temp
-      //or
-      Day1ElementTemp.textContent = Day1Temp
+      Day1ElementTemp.textContent = Day1Temp;
       Day1ElementHumidity.textContent = Day1Humidity
-      Day1ElementWind.textContent = Day1Wind
-      // Day1ElementNum.textContent = Day1dateNum
+      Day1ElementWeather.textContent = Day1Weather;
+      Day1ElementWind.textContent = Day1Wind;
+      Day1ElementNum.textContent = Day1dateNum
 
 
       //Day2
       var Day2Temp = data.list[1].main.temp;
+      var Day2Weather = data.list[1].weather[0].description;
       var Day2Humidity = data.list[1].main.humidity;
       var Day2Wind = data.list[1].wind.speed;
-      // var Day2dateNum = data.list[1].wind.dt;
-      
-      var Day2ElementTemp = querySelector("#temp2");
-      var Day2ElementHumidity = querySelector("#humidity2");
-      var Day2ElementWind = querySelector("#wind2");
-      var Day2ElementNum = querySelector("#date2");
+      var Day2dateNum = data.list[1].dt_txt;
+
+      var Day2ElementTemp = document.querySelector("#temp2");
+      var Day2ElementWeather = document.querySelector("#weatherDescription2");
+      var Day2ElementHumidity = document.querySelector("#humidity2");
+      var Day2ElementWind = document.querySelector("#wind2");
+      var Day2ElementNum = document.querySelector("#date2");
 
       Day2ElementTemp.textContent = Day2Temp
       Day2ElementHumidity.textContent = Day2Humidity
+      Day2ElementWeather.textContent = Day2Weather
       Day2ElementWind.textContent = Day2Wind
-      // Day2ElementNum.textContent = Day2dateNum
-      
+      Day2ElementNum.textContent = Day2dateNum
+
       //Day3
       var Day3Temp = data.list[2].main.temp;
+      var Day3Weather = data.list[2].weather[0].description;
       var Day3Humidity = data.list[2].main.humidity;
       var Day3Wind = data.list[2].wind.speed;
-      // var Day3dateNum = data.list[2].wind.dt;
+      var Day3dateNum = data.list[2].dt_txt;
 
-      var Day3ElementTemp = querySelector("#temp3");
-      var Day3ElementHumidity = querySelector("#humidity3");
-      var Day3ElementWind = querySelector("#wind3");
-      var Day3ElementNum = querySelector("#date3");
+      var Day3ElementTemp = document.querySelector("#temp3");
+      var Day3ElementWeather = document.querySelector("#weatherDescription3");
+      var Day3ElementHumidity = document.querySelector("#humidity3");
+      var Day3ElementWind = document.querySelector("#wind3");
+      var Day3ElementNum = document.querySelector("#date3");
 
       Day3ElementTemp.textContent = Day3Temp
       Day3ElementHumidity.textContent = Day3Humidity
+      Day3ElementWeather.textContent = Day3Weather
       Day3ElementWind.textContent = Day3Wind
-      // Day3ElementNum.textContent = Day3dateNum
+      Day3ElementNum.textContent = Day3dateNum
 
       //Day4
       var Day4Temp = data.list[3].main.temp;
-      var Day4humidity = data.list[3].main.humidity;
-      var Day4wind = data.list[3].wind.speed;
-      // var Day4dateNum = data.list[3].wind.dt;
+      var Day4Weather = data.list[3].weather[0].description;
+      var Day4Humidity = data.list[3].main.humidity;
+      var Day4Wind = data.list[3].wind.speed;
+      var Day4dateNum = data.list[3].dt_txt;
 
-      var Day4ElementTemp = querySelector("#temp4");
-      var Day4ElementHumidity = querySelector("#humidity4");
-      var Day4ElementWind = querySelector("#wind4");
-      var Day4ElementNum = querySelector("#date4");
+      var Day4ElementTemp = document.querySelector("#temp4");
+      var Day4ElementWeather = document.querySelector("#weatherDescription4");
+      var Day4ElementHumidity = document.querySelector("#humidity4");
+      var Day4ElementWind = document.querySelector("#wind4");
+      var Day4ElementNum = document.querySelector("#date4");
 
       Day4ElementTemp.textContent = Day4Temp
       Day4ElementHumidity.textContent = Day4Humidity
+      Day4ElementWeather.textContent = Day4Weather
       Day4ElementWind.textContent = Day4Wind
-      // Day4ElementNum.textContent = Day4dateNum
+      Day4ElementNum.textContent = Day4dateNum
 
       //Day5
       var Day5Temp = data.list[4].main.temp;
-      var Day5humidity = data.list[4].main.humidity;
-      var Day5wind = data.list[4].wind.speed;
-      // var Day5dateNum = data.list[4].wind.dt;
+      var Day5Weather = data.list[4].weather[0].description;
+      var Day5Humidity = data.list[4].main.humidity;
+      var Day5Wind = data.list[4].wind.speed;
+      var Day5dateNum = data.list[4].dt_txt;
 
-      var Day5ElementTemp = querySelector("#temp5");
-      var Day5ElementHumidity = querySelector("#humidity5");
-      var Day5ElementWind = querySelector("#wind5");
-      var Day5ElementNum = querySelector("#date5");
+      var Day5ElementTemp = document.querySelector("#temp5");
+      var Day5ElementWeather = document.querySelector("#weatherDescription5");
+      var Day5ElementHumidity = document.querySelector("#humidity5");
+      var Day5ElementWind = document.querySelector("#wind5");
+      var Day5ElementNum = document.querySelector("#date5");
 
       Day5ElementTemp.textContent = Day5Temp
       Day5ElementHumidity.textContent = Day5Humidity
+      Day5ElementWeather.textContent = Day5Weather
       Day5ElementWind.textContent = Day5Wind
-      // Day5ElementNum.textContent = Day5dateNum
+      Day5ElementNum.textContent = Day5dateNum
 
     })
 };
