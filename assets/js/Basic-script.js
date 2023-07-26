@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //Pass the selected City to your function
     LatandLonFetching(selectedCity);
 
-
+    addLocationtoLocalStorage(selectedCity)
+    displaysLocationFromLocalStorag(selectedCity)
   }
 });
 
@@ -62,6 +63,10 @@ function LatandLonFetching(city) {
 
       forcastWeather(lat, lon);
       currentWeather(lat, lon);
+
+    // If I want to intergrate the states I will just use lat and lon  
+    // addLocationtoLocalStorage(lat, lon)
+    // displaysLocationFromLocalStorag(lat, lon)
     })
 };
 
@@ -247,4 +252,11 @@ function forcastWeather(lat, lon) {
     })
 };
 
+function addLocationToLocalStorage(selectedCity) {
+   localStorage.setItem("City", selectedCity);
+};
+
+function displaysLocationFromLocalStorage(selectedCity) {
+  var storedSubmittedLocation = 
+};
 
