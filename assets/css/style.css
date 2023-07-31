@@ -65,3 +65,7 @@ margin: 1%;
     border-radius: 15px;
     flex-direction: column;
 }
+
+#searchedCity {
+    display: flex;
+}
