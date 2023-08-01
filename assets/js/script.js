@@ -6,6 +6,8 @@ console.log(currentDate);
 
 //var city = document.querySelector("#city");
 var city = document.getElementById("city");
+var citypickedhistory = document.getElementById("historyCity");
+
 
 
 var todayWeather = document.querySelector(".currentWeather");
@@ -258,15 +260,19 @@ function forcastWeather(lat, lon) {
 };
 
 function addLocationToLocalStorage(selectedCity) {
+  var cityArray = JSON.parse(localStorage.getItem("City")) || [];
+  cityArray.push(selectedCity);
   // console.log(selectedCity);
-  var stringifiedCity = localStorage.setItem("City", JSON.stringify(selectedCity));
+  localStorage.setItem("City", JSON.stringify(cityArray));
   // console.log(stringifiedCity);
-  displaysLocationFromLocalStorage(stringifiedCity);
+ // displaysLocationFromLocalStorage(stringifiedCity);
+
 }
 
 
 function displaysLocationFromLocalStorage() {
   var searchedCities = JSON.parse(localStorage.getItem("City"));
+  // var tempArray = [];
 
   // Check if there are any past searched cities in local storage
   if (searchedCities && searchedCities.length > 0) {
@@ -277,19 +283,22 @@ function displaysLocationFromLocalStorage() {
     for (var i = 0; i < searchedCities.length; i++) {
       var pastSearch = searchedCities[i];
 
-      var ul = document.createElement("ul");
-      ul.textContent = pastSearch;
-      ul.setAttribute("data-index", i);
+      var li = document.createElement("li");
+      li.textContent = pastSearch;
+      li.setAttribute("data-index", i);
+      console.log(pastSearch);
+      // console.log(history);
+      //var button = document.createElement("button");
+      //button.textContent = searchedCities[i];
+      citypickedhistory.appendChild(li);
 
-      var button = document.createElement("button");
-      button.textContent = searchedCities[i];
-      
+  
 
       // Append the button to the ul element
-      ul.appendChild(button);
+      // ul.appendChild(button);
 
       // Append the ul element to the searchedCity element
-      searchedCityElement.appendChild(ul);
+      // searchedCityElement.appendChild(ul);
     }
   }
 }
