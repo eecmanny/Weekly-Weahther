@@ -261,7 +261,11 @@ function forcastWeather(lat, lon) {
 
 function addLocationToLocalStorage(selectedCity) {
   var cityArray = JSON.parse(localStorage.getItem("City")) || [];
+  if (cityArray.includes(selectedCity)){
+    return
+  }
   cityArray.push(selectedCity);
+  
   // console.log(selectedCity);
   localStorage.setItem("City", JSON.stringify(cityArray));
   // console.log(stringifiedCity);
@@ -272,33 +276,29 @@ function addLocationToLocalStorage(selectedCity) {
 
 function displaysLocationFromLocalStorage() {
   var searchedCities = JSON.parse(localStorage.getItem("City"));
-  // var tempArray = [];
 
   // Check if there are any past searched cities in local storage
   if (searchedCities && searchedCities.length > 0) {
-    var searchedCityElement = document.getElementById("searchedCity");
-    searchedCityElement.innerHTML = "";
+    // var searchedCityElement = document.getElementById("searchedCity");
+    citypickedhistory.innerHTML = "";
+
+    // A constructor function to sotr a new object of only unique cities the user picks due the ht eif statement
+    // var uniqueCities = new Set();
 
     // Loop through the array of past searched cities
     for (var i = 0; i < searchedCities.length; i++) {
       var pastSearch = searchedCities[i];
 
-      var li = document.createElement("li");
-      li.textContent = pastSearch;
-      li.setAttribute("data-index", i);
-      console.log(pastSearch);
-      // console.log(history);
-      //var button = document.createElement("button");
-      //button.textContent = searchedCities[i];
-      citypickedhistory.appendChild(li);
+      // // Check if the city is already in the Set
+      // if (!uniqueCities.has(pastSearch)) {
+      //   uniqueCities.add(pastSearch);
 
-  
-
-      // Append the button to the ul element
-      // ul.appendChild(button);
-
-      // Append the ul element to the searchedCity element
-      // searchedCityElement.appendChild(ul);
+        var li = document.createElement("li");
+        li.textContent = pastSearch;
+        li.setAttribute("data-index", i);
+        citypickedhistory.appendChild(li);
+      }
     }
   }
-}
+// }
+displaysLocationFromLocalStorage();
