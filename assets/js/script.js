@@ -17,33 +17,35 @@ var weatherDay3 = document.querySelector("#Day3");
 var weatherDay4 = document.querySelector("#Day4");
 var weatherDay5 = document.querySelector("#Day5");
 
+var currentDayCity = document.querySelector("#day"); 
+
+
 var submit = document.querySelector(".btn");
 
+function chooseLocation(event) {
+  event.preventDefault();
 
+  // console.log(document.getElementById("city").value);
+  const selectedCity =  document.getElementById("city").value || event.target.textContent;
+
+  if(!selectedCity) return;
+
+  // textPickedCity.push(selectedCity);
+
+  // Console logging the selected city
+  // console.log(selectedCity);
+
+  //Pass the selected City to your function
+  LatandLonFetching(selectedCity);
+
+  addLocationToLocalStorage(selectedCity);
+  // displaysLocationFromLocalStorage(selectedCity);
+  displaysLocationFromLocalStorage();
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
   submit = addEventListener("submit", chooseLocation);
-
-  function chooseLocation(event) {
-    event.preventDefault();
-
-    // console.log(document.getElementById("city").value);
-    const selectedCity = document.getElementById("city").value;
-    // textPickedCity.push(selectedCity);
-
-    // Console logging the selected city
-    // console.log(selectedCity);
-
-    //Pass the selected City to your function
-    LatandLonFetching(selectedCity);
-
-    addLocationToLocalStorage(selectedCity);
-    // displaysLocationFromLocalStorage(selectedCity);
-    displaysLocationFromLocalStorage();
-  }
-
-
 });
 
 
@@ -62,6 +64,7 @@ function LatandLonFetching(city) {
       // console.log(data)
       // console.log(data[0].lat)
       // console.log(data[0].lon)
+      currentDayCity.textContent = city
 
       var lat = data[0].lat;
       var lon = data[0].lon;
@@ -261,15 +264,15 @@ function forcastWeather(lat, lon) {
 
 function addLocationToLocalStorage(selectedCity) {
   var cityArray = JSON.parse(localStorage.getItem("City")) || [];
-  if (cityArray.includes(selectedCity)){
+  if (cityArray.includes(selectedCity)) {
     return
   }
   cityArray.push(selectedCity);
-  
+
   // console.log(selectedCity);
   localStorage.setItem("City", JSON.stringify(cityArray));
   // console.log(stringifiedCity);
- // displaysLocationFromLocalStorage(stringifiedCity);
+  // displaysLocationFromLocalStorage(stringifiedCity);
 
 }
 
@@ -293,12 +296,24 @@ function displaysLocationFromLocalStorage() {
       // if (!uniqueCities.has(pastSearch)) {
       //   uniqueCities.add(pastSearch);
 
-        var li = document.createElement("li");
-        li.textContent = pastSearch;
-        li.setAttribute("data-index", i);
-        citypickedhistory.appendChild(li);
-      }
+      var li = document.createElement("li");
+      li.textContent = pastSearch;
+      li.setAttribute("data-index", i);
+      citypickedhistory.appendChild(li);
+      // console.log(citypickedhistory);
+      // console.log(searchedCities[i]);
+      // li.addEventListener("click", function () {
+      //   chooseLocationForHistory(this.textContent);
+      // });
+      li.addEventListener("click", chooseLocation)
+
+      // function chooseLocationForHistory() {
+
+      //   chooseLocation();
+      // }
+
     }
   }
+}
 // }
 displaysLocationFromLocalStorage();
