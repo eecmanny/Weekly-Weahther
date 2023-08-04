@@ -2,9 +2,9 @@ var country = "US"
 
 var currentDate = dayjs();
 $("#currentDay").text(currentDate.format('dddd, MMMM D YYYY, h:mm:ss a'));
-console.log(currentDate);
 
-//var city = document.querySelector("#city");
+
+
 var city = document.getElementById("city");
 var citypickedhistory = document.getElementById("historyCity");
 
@@ -25,21 +25,14 @@ var submit = document.querySelector(".btn");
 function chooseLocation(event) {
   event.preventDefault();
 
-  // console.log(document.getElementById("city").value);
   const selectedCity =  document.getElementById("city").value || event.target.textContent;
 
   if(!selectedCity) return;
 
-  // textPickedCity.push(selectedCity);
 
-  // Console logging the selected city
-  // console.log(selectedCity);
-
-  //Pass the selected City to your function
   LatandLonFetching(selectedCity);
 
   addLocationToLocalStorage(selectedCity);
-  // displaysLocationFromLocalStorage(selectedCity);
   displaysLocationFromLocalStorage();
 }
 
@@ -49,15 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// LatandLonFetching();
+
 
 function LatandLonFetching(city) {
-  //console.log the city to make sure it was passed correctly
-  console.log(city);
   fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + ",US&limit=5&appid=ac7cbe64d8841fa5ae6093c5853d6268")
     // fetch(geocodeURL)
     .then(response => {
-      // console.log(response);
       return response.json();
     })
     .then(function (data) {
@@ -84,17 +74,12 @@ function LatandLonFetching(city) {
 // // // CurrentWeather API
 // // // This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
 function currentWeather(lat, lon) {
-  //   // var lat = position.coords.latitude;
-  //   // var lon = position.coords.longitude;
+
   fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268")
-    // fetch(currentWeatherUrl)
     .then(response => {
-      // console.log(response);
       return response.json();
     })
     .then(function (data) {
-
-      // console.log(data);
 
       var Day1ElementTemp = document.querySelector("#tempCurrent");
       var Day1ElementWeather = document.querySelector("#weatherDescriptionCurrent");
@@ -105,14 +90,6 @@ function currentWeather(lat, lon) {
       var Day1Weather = data.weather[0].description;
       var Day1Humidity = data.main.humidity;
       var Day1Wind = data.wind.speed;
-      // console.log(data.list[0].main.temp);
-      // console.log(Day1Temp);
-      // console.log(data.list[0].weather[0]);
-      // console.log(Day1dateNum);
-
-      // console.log(Day1humidity);
-      // console.log(Day1wind);
-      // console.log(Day1dateNum);
 
       Day1ElementTemp.textContent = Day1Temp;
       Day1ElementHumidity.textContent = Day1Humidity
@@ -120,40 +97,19 @@ function currentWeather(lat, lon) {
       Day1ElementWind.textContent = Day1Wind;
 
 
-      // console.log(data)
-
-      // console.log(data.main);
-
-
-      // var temp = data.main.temp;
-      // console.log(data.main.temp);
-      // console.log(temp);
-
-
-      // var humidity = data.main.humidity;
-      // console.log(humidity);
-
-
-      // var wind = data.wind.speed;
-      // console.log(wind);
-
     });
 }
 
 // // //forcastWeather API
 // // //This function should fetch grabs the fetched latitude and longitude and fetched the data for that days weather. 
 function forcastWeather(lat, lon) {
-  // //   // //   // var lat = position.coords.latitude;
-  // //   // //   // var lon = position.coords.longitude;
+
 
   fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=ac7cbe64d8841fa5ae6093c5853d6268")
-    // fetch(forcastWeatherUrl)
     .then(response => {
-      // console.log(response);
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
 
       //Day 1
       var Day1ElementTemp = document.querySelector("#temp1");
@@ -167,14 +123,6 @@ function forcastWeather(lat, lon) {
       var Day1Humidity = data.list[0].main.humidity;
       var Day1Wind = data.list[0].wind.speed;
       var Day1dateNum = data.list[0].dt_txt;
-      // console.log(data.list[0].main.temp);
-      // console.log(Day1Temp);
-      // console.log(data.list[0].weather[0]);
-      // console.log(Day1dateNum);
-
-      // console.log(Day1humidity);
-      // console.log(Day1wind);
-      // console.log(Day1dateNum);
 
       Day1ElementTemp.textContent = Day1Temp;
       Day1ElementHumidity.textContent = Day1Humidity
@@ -268,11 +216,7 @@ function addLocationToLocalStorage(selectedCity) {
     return
   }
   cityArray.push(selectedCity);
-
-  // console.log(selectedCity);
   localStorage.setItem("City", JSON.stringify(cityArray));
-  // console.log(stringifiedCity);
-  // displaysLocationFromLocalStorage(stringifiedCity);
 
 }
 
@@ -280,38 +224,18 @@ function addLocationToLocalStorage(selectedCity) {
 function displaysLocationFromLocalStorage() {
   var searchedCities = JSON.parse(localStorage.getItem("City"));
 
-  // Check if there are any past searched cities in local storage
   if (searchedCities && searchedCities.length > 0) {
-    // var searchedCityElement = document.getElementById("searchedCity");
     citypickedhistory.innerHTML = "";
-
-    // A constructor function to sotr a new object of only unique cities the user picks due the ht eif statement
-    // var uniqueCities = new Set();
 
     // Loop through the array of past searched cities
     for (var i = 0; i < searchedCities.length; i++) {
       var pastSearch = searchedCities[i];
 
-      // // Check if the city is already in the Set
-      // if (!uniqueCities.has(pastSearch)) {
-      //   uniqueCities.add(pastSearch);
-
       var li = document.createElement("li");
       li.textContent = pastSearch;
       li.setAttribute("data-index", i);
       citypickedhistory.appendChild(li);
-      // console.log(citypickedhistory);
-      // console.log(searchedCities[i]);
-      // li.addEventListener("click", function () {
-      //   chooseLocationForHistory(this.textContent);
-      // });
       li.addEventListener("click", chooseLocation)
-
-      // function chooseLocationForHistory() {
-
-      //   chooseLocation();
-      // }
-
     }
   }
 }
