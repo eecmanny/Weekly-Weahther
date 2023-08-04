@@ -1,7 +1,8 @@
 # weatherApi-HW
 
-https://eecmanny.github.io/Weekly-Weahther/
-https://github.com/eecmanny/Weekly-Weahther
+https://eecmanny.github.io/Weekly-Weather/
+
+https://github.com/eecmanny/Weekly-Weather
 
 What User story:
 AS A traveler
