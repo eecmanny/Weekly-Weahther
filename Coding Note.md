@@ -1,10 +1,14 @@
-
 # weatherApi-HW
 
 https://eecmanny.github.io/Weekly-Weahther/
 https://github.com/eecmanny/Weekly-Weahther
 
+What User story:
+AS A traveler
+The user should to see the weather outlook for multiple cities
+SO THAT they can plan a trip accordingly.
 
+What the app does:
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city - (Using the text box and a click event to start the series of functions)
 THEN I am presented with current and future conditions for that city and that city is added to the search history - (Pulled data from Openweather API)
