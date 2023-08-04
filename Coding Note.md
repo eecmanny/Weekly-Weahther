@@ -9,14 +9,23 @@ The user should to see the weather outlook for multiple cities
 SO THAT they can plan a trip accordingly.
 
 What the app does:
+
 GIVEN a weather dashboard with form inputs
+
 WHEN I search for a city - (Using the text box and a click event to start the series of functions)
+
 THEN I am presented with current and future conditions for that city and that city is added to the search history - (Pulled data from Openweather API)
+
 WHEN I view current weather conditions for that city - (Pulled data from Openweather API)
+
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed - (Pulled data from Openweather API)
+
 WHEN I view future weather conditions for that city -(Pulled data from Openweather API)
+
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity - (Pulled data from Openweather API)
+
 WHEN I click on a city in the search history - (Using a get and set localstorage function and to append to the screen and mdade the a click event)
+
 THEN I am again presented with current and future conditions for that city
 
 ![Enter City](https://github.com/eecmanny/Weekly-Weahther/assets/130661353/3fe96ff7-d54d-4dc8-aa6f-566b7e98bac7)
